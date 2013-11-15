@@ -1,0 +1,85 @@
+<tool id="small_rna_pipeline_hanb" name="Small RNA Pipeline" version="1.00">
+  <description>A small RNA pipeline in the Zamore Lab</description>
+  <command interpreter="python">
+     small_rna_pipeline_hanb.py --input "$input" --species "$species" --user-email "${__user_email__}" --location "$output"
+## The following is used to prevent newbies from entering bad input
+#try
+  #assert $advanced.cpu
+#except
+  #pass
+#else
+  --cpu ${advanced.cpu}
+#end try
+#try
+  #assert $advanced.config_file
+#except
+  #pass
+#else
+  --config ${advanced.config_file}
+#end try
+  </command>
+  <inputs>
+    <!-- Uncomment the following lines, when galaxy machine is able to upload file to the cluster
+	 <param name="input" type="select" display="radio" optional="false" label="Input file (fastq or gzipped fastq)" help="This is the help for the input.">
+	 <option value="l" selected="true">Specify a location</option>
+	 <option value="u">Upload a file</option>
+	 <when value="l">
+	 <param name="input" type="text" label="Specify the path to the input file"></param>
+	 </when>
+	 <when value="u">
+	 <param <a name=""></a>="upload" type="data" label="**Do not work**Choose your file from current history">
+	 </param>
+    -->
+
+    <param name="input" type="text" label="Specify the path to your input file">
+    </param>
+<!--    <param name="output_dir" type="text" label="Output directory"></param>
+-->
+    <param name="species" type="select" label="Species">
+      <option value="human" selected="true">Human</option>
+      <option value="mouse">Mouse</option>
+      <option value="mm10">mm10</option>
+      <option value="fly">fly</option>
+    </param>
+    <conditional name="advanced">
+      <param name="advanced_options" type="select" label="Advanced options">
+	<option value="hide">Hide advanced options</option>
+	<option value="show">Show advanced options</option>
+      </param>
+      <when value="hide"></when>
+      <when value="show">
+	<param name="cpu" type="text" label="Number of CPUs to use" value="8">
+	</param>
+	<param name="config_file" type="text" label="Specify the location of your configure file"></param>
+      </when>
+    </conditional>
+  </inputs>
+  <outputs>
+    <data format="text" name="output" />
+  </outputs>
+
+  <help>
+**What it does**
+
+This is a single library small RNA pipeline developed in the Zamore Lab in 
+University of Massachusetts Medical School. 
+
+Please email Bo.Han@umassmed.edu for any questions or bugs for the pipeline.
+
+-----
+
+You should specify paths on the HPCC.
+
+You can access the results via the url, or the path on the cluster.
+
+**Example**
+
+Input: /isilon_temp/weng/fuy2/public/Hannon.SRA.armiMuts.unox.ovary.trimmed.fq.gz
+
+Species: Fly
+
+If you choose to use advanced options, please specify both 
+Number of CPUs to use: 8 (default)
+
+  </help>
+</tool>

@@ -1,0 +1,80 @@
+<tool id="small_rna_pipeline2_hanb" name="Samll RNA Pipeline" version="1.00">
+  <description>A dual library small RNA pipeline developed in the Zamore Lab</description>
+  <!--
+      TODO: finish the python script
+      The output filename (default-parameter-fn) is provided by Galaxy
+  -->
+  <command interpreter="python">
+    small_rna_pipeline2_hanb.py --input-a "$input1" --input-b "$input2" --species "$species" --output-dir "$output_dir" --parameter-file "$parameter_file" --workflow-file "$workflow_file"
+    #try
+      #assert $advanced.cpu
+    #except
+      #pass
+    #else
+      --cpu ${advanced.cpu}
+    #end try
+  </command>
+  <inputs>
+    <!-- Uncomment the following lines, when galaxy machine is able to upload file to the cluster
+	 <param name="input" type="select" display="radio" optional="false" label="Input file (fastq or gzipped fastq)" help="This is the help for the input.">
+	 <option value="l" selected="true">Specify a location</option>
+	 <option value="u">Upload a file</option>
+	 <when value="l">
+	 <param name="input" type="text" label="Specify the path to the input file"></param>
+	 </when>
+	 <when value="u">
+	 <param <a name=""></a>="upload" type="data" label="**Do not work**Choose your file from current history">
+	 </param>
+    -->
+
+    <param name="input1" type="text" label="Input directory where single library pipeline was ran on library 1 (typically heterzygous)">
+    </param>
+    <param name="input2" type="text" label="Input directory where single library pipeline was ran on library 2 (typically mutant)">
+    </param>
+    <param name="output_dir" type="text" label="Output directory"></param>
+    <param name="species" type="select" label="Species">
+      <option value="fly" selected="true">Fly</option>
+      <option value="mouse">Mouse</option>
+    </param>
+    <conditional name="advanced">
+      <param name="advanced_options" type="select" label="Advanced options">
+	<option value="hide">Hide advanced options</option>
+	<option value="show">Show advanced options</option>
+      </param>
+      <when value="hide"></when>
+      <when value="show">
+	<param name="cpu" type="text" label="Number of CPUs to use" value="8">
+	</param>
+      </when>
+    </conditional>
+  </inputs>
+  <outputs>
+    <data format="text" name="workflow_file" />
+    <data format="text" name="parameter_file"/>
+  </outputs>
+  <help>
+**What it does**
+
+This is a dual library small RNA pipeline developed in the Zamore Lab in 
+University of Massachusetts Medical School. 
+
+Please email Bo.Han@umassmed.edu for any questions or bugs.
+
+-----
+
+You should specify paths on the HPCC.
+
+The final output is on the cluster. The two jobs on the right panel are just intermediate files. You can safely ignore them.
+
+**Example**
+
+Input 1: /isilon_temp/weng/fuy2/public/dir1
+
+Input 2: /isilon_temp/weng/fuy2/public/dir2
+
+Output: /home/your_username/some/dir
+
+Species: Mouse
+
+  </help>
+</tool>

@@ -1,0 +1,195 @@
+<tool id="small_rna_pipeline_wangw" name="Small RNA Mapping Pipeline" version="1.00">
+  <description>The small RNA analysis pipeline in ZLAB</description>
+  <command interpreter="python">
+     small_rna_pipeline_wangw.py --input "$input"  --adaptor="$adaptor" --min="$min" --max="$max" --mm="$mm" --email '$email' --location '$output' --female "$female" --user-email '${__user_email__}'
+## I decided to give up using #if in Cheetah. Either cheetah or galaxy is buggy
+## Or, both.
+
+  </command>
+  <inputs>
+    <!-- Uncomment the following lines, when galaxy machine is able to upload file to the cluster
+	 <param name="input" type="select" display="radio" optional="false" label="Input file (fastq or gzipped fastq)" help="This is the help for the input.">
+	 <option value="l" selected="true">Specify a location</option>
+	 <option value="u">Upload a file</option>
+	 <when value="l">
+	 <param name="input" type="text" label="Specify the path to the input file"></param>
+	 </when>
+	 <when value="u">
+	 <param <a name=""></a>="upload" type="data" label="**Do not work**Choose your file from current history">
+	 </param>
+    -->
+
+    <param name="input" type="text" label="Inserts file">
+    </param>
+<!--    <param name="output_dir" type="text" label="Output directory"></param>
+-->
+<!--    <param name="species" type="select" label="Species">
+      <option value="human" selected="true">Human</option>
+      <option value="mouse">Mouse</option>
+      <option value="mm10">mm10</option>
+      <option value="fly">fly</option>
+      </param>
+-->
+    <param name="adaptor" type="text" label="3' adaptor sequence"></param>
+    <param name="min" type="text" label="Minimum length of inserts"></param>
+    <param name="max" type="text" label="Maximum length of inserts"></param>
+<!-- The label is from the original manual. It seems like wrong wording.
+    <param name="mm" type="text" label="Map to the genome Mismatch? (enter 0,1,2...)"></param>
+-->
+    <param name="mm" type="text" label="Number of mismatches allowed (enter 0,1,2...)"></param>
+
+    <param name="female" type="select" label="FEMALE sample?" display="radio">
+      <option value="t">Yes</option>
+      <option value="f" selected="true">No</option>
+    </param>
+
+    <param name="email" type="text" label="Your email address (when it's done, it would automatically send an email to your account)"></param>
+  </inputs>
+  <outputs>
+    <data format="text" name="output"/>
+  </outputs>
+
+  <help>
+**What it does**
+
+This is a Small RNAs mapping pipeline
+
+**Example**
+
+Inserts file: /isilon_temp/weng/fuy2/public/Phil.SRA.PiwiIPago3hets.unox.ovary.inserts.trimmed
+
+3' adaptor sequence: TGGAATTCTCGGGTGCCAAGG
+
+Minimum lengths of inserts: 18
+
+Maximum lengths of inserts: 34
+
+Number of mismatches allowed: 0
+
+FEMALE sample: Yes
+
+Your email address: youremail@provider.com
+
+You should specify paths on the HPCC.
+
+The final output is on the cluster. The two jobs on the right panel just indicate intermediate files. You can safely ignore them.
+
+Step 1: Extract the sequencing reads from the tar ball
+-------------------------------------------------------
+
+Unzip the files and prepare the inputfile to submit the job
+
+Usually what you get from the sequencing machine is a gzip file. 
+
+step 1: mkdir newdir; mv filename.tar.gz newdir; cd newdir; tar -zxvf filename.tar.gz
+
+step 2: cut -f5 \*seq.txt > temp; /home/xuj1/pipeline/uniq.reads+ temp > filename (eg. Ago3IP)
+
+It merges the same seqs to a single line with the # of reads as 2nd col.
+
+Sometimes the \*seq.txt files are not in the current directory, you should go into the directory that contains \*seq.txt.
+
+Step 2: Submit the job to hpcc01
+--------------------------------------------------
+
+Example:
+
+Output directory: /home/xuj1/nearline
+
+Inserts file: **TODO**
+
+3' adaptor sequence:
+
+TGGAATTCTCGGGTGCCAAGG
+
+Minimum length of the inserts: 18
+Maximum length of the inserts: 29
+
+Number of mismatch allowed: 0
+
+FEMALE sample: Yes
+
+Your email address (when it's done, it would automatically send an email to your account): XX.XXX@umassmed.edu
+
+Final Output
+------------------------------------------------------------
+
+1. OUTPUT folder
+----------------
+
+In the output directory you specified, under the same directory of your input directory there is a directory called "output". All the useful output are there.
+
+It contains:
+
+a. log file: print out the running time for each process
+
+b. lendis figures: 
+
+y species:
+filename.match2_all.out.uniq.lendis.pdf --> lendis of the genome mapping inserts
+filename.xk.match2_all.out.uniq.lendis.pdf --> lendis of the genome mapping inserts excluding knownRNAs
+filename.xkxh.match2_all.out.uniq.lendis.pdf --> lendis of the genome mapping inserts excluding knownRNAs and hairpins
+by reads:
+filename.match2_all.out.reads.lendis.pdf --> lendis of the genome mapping inserts
+filename.xk.match2_all.out.reads.lendis.pdf --> lendis of the genome mapping inserts excluding knownRNAs
+filename.xkxh.match2_all.out.reads.lendis.pdf --> lendis of the genome mapping inserts excluding knownRNAs and hairpins
+
+filename.xkxh.transposon.mapper2.lendis2.pdf -->  the transposon mapping smallRNAs lendis excluding knownRNAs and hairpins (sense: blue on top, antisense: red on bottom)
+   
+\*.lendis \*.lendis2 are the raw numbers that are used to plot the figures. 
+
+c. tables:
+
+filename_stats_table_species: sequencing stats by species
+filename_stats_table_reads: sequencing stats by reads 
+filename.annot_table.species: annotation stats by species
+filename.annot_table.reads: annotation stats by reads
+filename.annot_table.norm.species: annotation stats by species normalized by NTM(number of times mapped to the genome) and NTA (number of annotations)
+filename.annot_table.norm.reads: annotation stats by reads normalized by NTM(number of times mapped to the genome) and NTA (number of annotations)
+
+2. Intermediate files
+---------------------
+
+We keep all the useful information in the same directory of your input directory.
+
+2.1 general
+
+filename --> your input file
+filename.uniq.reads --> the inserts of your sample 
+
+2.2 mapping
+
+filename.antimRNA.mapper  --> map to antisense mRNAs ( 1st col as seq, 2nd col as # of reads, the other cols indicates where it maps to)
+filename.snmRNA.mapper  --> map to sense mRNAs
+filename.mRNA.mapper --> map to mRNAs
+filename.exon.mapper  --> map to exons
+filename.intron.mapper --> map to introns
+filename.intergenic.mapper --> map to intergenic regions
+filename.knownRNA.mapper --> map to knownRNAs
+filename.hairpin.mapper --> map to hairpins
+filename.match2_all.out --> map to the genome
+filename.norm.bed --> map to the genome in the bed format (chr/start/end/strand/seq/#ofreads/# of times mapped to the genome)
+filename.xkxh.match2_all.out --> map to the genome excluding knownRNAs and hairpins
+filename.xkxh.transposon.mapper2 --> map to the transposons excluding knownRNAs and hairpins,USED TO GENERATE BUCKETS
+
+2.3 uniq.reads ( 1st col as unique species, 2nd col as # of reads)
+
+filename.match2_all.out.uniq.reads  -->  all the seqs mapped to the genome
+filename.xk.match2_all.out.uniq.reads --> genome mapping seqs excluding knownRNAs
+filename.xkxh.match2_all.out.uniq.reads --> genome mapping seqs excluding knownRNAs and hairpins
+filename.xkxh.match2_all.out.21nt.uniq.reads --> genome mapping 21mers excluding knownRNAs and hairpins (siRNAs)
+filename.xkxh.match2_all.out.23-29nt.uniq.reads --> genome mapping 23-29mers excluding knownRNAs and hairpins (piRNAs)
+filename.xkxh.transposon.mapper2.uniq.reads --> all genome mapping seqs map to transposons excluding knownRNAs and hairpins 
+filename.xkxh.antimRNA.mapper.uniq.reads --> all seqs mapped to antisense mRNAs excluding knownRNAs and hairpins
+filename.xkxh.antimRNA.overlaptrans.uniq.reads --> all seqs mapped to antisense mRNAs that overlap with transposons excluding knownRNAs and hairpins
+filename.xkxh.snmRNA.mapper.uniq.reads  --> all seqs mapped to sense mRNAs excluding knownRNAs and hairpins
+filename.xkxh.snmRNA.overlaptrans.uniq.reads --> all seqs mapped to sense mRNAs that overlap with transposons excluding knownRNAs and hairpins
+filename.xkxh.match2_all.out.exon.uniq.reads --> all seqs mapped to exons excluding knownRNAs and hairpins
+filename.xkxh.match2_all.out.exon.overlaptrans.uniq.reads --> all seqs mapped to exons that overlap with transposons excluding knownRNAs and hairpins
+filename.xkxh.match2_all.out.intergenic.uniq.reads --> all seqs mapped to intergenic regions excluding knownRNAs and hairpins
+filename.xkxh.match2_all.out.intergenic.overlaptrans.uniq.reads  --> all seqs mapped to intergenic regions that overlap with transposons excluding knownRNAs and hairpins
+filename.xkxh.match2_all.out.intron.uniq.reads --> all seqs mapped to introns excluding knownRNAs and hairpins 
+filename.xkxh.match2_all.out.intron.overlaptrans.uniq.reads --> all seqs mapped to introns that overlap with transposons excluding knownRNAs and hairpins
+filename.xkxh.match2_all.out.noannot.uniq.reads --> all genome mapping seqs that don't have any annotations excluding knownRNAs and hairpins
+  </help>
+</tool>

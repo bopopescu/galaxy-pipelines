@@ -1,0 +1,12 @@
+@BASH=/bin/bash
+@PERL=/share/bin/perl
+@PYTHON=/share/bin/python
+@INPUT_FILE=fds/
+@OUTPUT_DIR=fds
+@ADAPTOR=
+@MINIMUM=
+@MAXIMUM=
+@MM=
+@EMAIL=
+@FEMALE=N
+@PIPELINEDIR=/home/wengz/pipelines/smallRNApipeline/pipeline_dm

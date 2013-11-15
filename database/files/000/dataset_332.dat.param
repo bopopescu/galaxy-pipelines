@@ -1,0 +1,6 @@
+@BASH=/bin/bash
+@PERL=/share/bin/perl
+@PYTHON=/share/bin/python
+@INPUT_FILE=/isilon_temp/weng/fuy2/public/Hannon.SRA.armiMuts.unox.ovary.trimmed.fq.gz
+@OUTPUT_DIR=/isilon_temp/weng/fuy2/public/output/fuy2_516382275
+@PIPELINEDIR=/isilon_temp/weng/fuy2/public/Hanb/small_RNA_pipeline

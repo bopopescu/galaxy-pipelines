@@ -1,0 +1,3 @@
+@BASH=/bin/bash
+@PERL=/share/bin/perl
+@PYTHON=/share/bin/python

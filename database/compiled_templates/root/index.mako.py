@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 6
-_modified_time = 1382373377.058563
+_modified_time = 1384542354.025699
 _template_filename='templates/webapps/galaxy/root/index.mako'
 _template_uri='root/index.mako'
 _template_cache=cache.Cache(__name__, _modified_time)
@@ -20,8 +20,8 @@ def _mako_get_namespace(context, name):
         return context.namespaces[(__name__, name)]
 def _mako_generate_namespaces(context):
     # SOURCE LINE 3
-    ns = runtime.TemplateNamespace('__anon_0x7cebf10', context._clean_inheritance_tokens(), templateuri=u'/root/tool_menu.mako', callables=None, calling_uri=_template_uri)
-    context.namespaces[(__name__, '__anon_0x7cebf10')] = ns
+    ns = runtime.TemplateNamespace('__anon_0x9bfdb50', context._clean_inheritance_tokens(), templateuri=u'/root/tool_menu.mako', callables=None, calling_uri=_template_uri)
+    context.namespaces[(__name__, '__anon_0x9bfdb50')] = ns
 
 def _mako_inherit(template, context):
     _mako_generate_namespaces(context)
@@ -31,7 +31,7 @@ def render_body(context,**pageargs):
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         _import_ns = {}
-        _mako_get_namespace(context, '__anon_0x7cebf10')._populate(_import_ns, [u'*'])
+        _mako_get_namespace(context, '__anon_0x9bfdb50')._populate(_import_ns, [u'*'])
         __M_writer = context.writer()
         # SOURCE LINE 1
         __M_writer(u'\n\n')
@@ -60,7 +60,7 @@ def render_left_panel(context):
     context.caller_stack._push_frame()
     try:
         _import_ns = {}
-        _mako_get_namespace(context, '__anon_0x7cebf10')._populate(_import_ns, [u'*'])
+        _mako_get_namespace(context, '__anon_0x9bfdb50')._populate(_import_ns, [u'*'])
         render_tool_menu = _import_ns.get('render_tool_menu', context.get('render_tool_menu', UNDEFINED))
         n_ = _import_ns.get('n_', context.get('n_', UNDEFINED))
         __M_writer = context.writer()
@@ -81,7 +81,7 @@ def render_center_panel(context):
     context.caller_stack._push_frame()
     try:
         _import_ns = {}
-        _mako_get_namespace(context, '__anon_0x7cebf10')._populate(_import_ns, [u'*'])
+        _mako_get_namespace(context, '__anon_0x9bfdb50')._populate(_import_ns, [u'*'])
         tool_id = _import_ns.get('tool_id', context.get('tool_id', UNDEFINED))
         m_c = _import_ns.get('m_c', context.get('m_c', UNDEFINED))
         h = _import_ns.get('h', context.get('h', UNDEFINED))
@@ -121,7 +121,7 @@ def render_late_javascripts(context):
     context.caller_stack._push_frame()
     try:
         _import_ns = {}
-        _mako_get_namespace(context, '__anon_0x7cebf10')._populate(_import_ns, [u'*'])
+        _mako_get_namespace(context, '__anon_0x9bfdb50')._populate(_import_ns, [u'*'])
         h = _import_ns.get('h', context.get('h', UNDEFINED))
         _ = _import_ns.get('_', context.get('_', UNDEFINED))
         parent = _import_ns.get('parent', context.get('parent', UNDEFINED))
@@ -263,7 +263,7 @@ def render_right_panel(context):
     context.caller_stack._push_frame()
     try:
         _import_ns = {}
-        _mako_get_namespace(context, '__anon_0x7cebf10')._populate(_import_ns, [u'*'])
+        _mako_get_namespace(context, '__anon_0x9bfdb50')._populate(_import_ns, [u'*'])
         h = _import_ns.get('h', context.get('h', UNDEFINED))
         _ = _import_ns.get('_', context.get('_', UNDEFINED))
         __M_writer = context.writer()
@@ -290,7 +290,7 @@ def render_stylesheets(context):
     context.caller_stack._push_frame()
     try:
         _import_ns = {}
-        _mako_get_namespace(context, '__anon_0x7cebf10')._populate(_import_ns, [u'*'])
+        _mako_get_namespace(context, '__anon_0x9bfdb50')._populate(_import_ns, [u'*'])
         h = _import_ns.get('h', context.get('h', UNDEFINED))
         parent = _import_ns.get('parent', context.get('parent', UNDEFINED))
         __M_writer = context.writer()
@@ -311,7 +311,7 @@ def render_init(context):
     context.caller_stack._push_frame()
     try:
         _import_ns = {}
-        _mako_get_namespace(context, '__anon_0x7cebf10')._populate(_import_ns, [u'*'])
+        _mako_get_namespace(context, '__anon_0x9bfdb50')._populate(_import_ns, [u'*'])
         self = _import_ns.get('self', context.get('self', UNDEFINED))
         trans = _import_ns.get('trans', context.get('trans', UNDEFINED))
         __M_writer = context.writer()
@@ -341,7 +341,7 @@ def render_javascripts(context):
     context.caller_stack._push_frame()
     try:
         _import_ns = {}
-        _mako_get_namespace(context, '__anon_0x7cebf10')._populate(_import_ns, [u'*'])
+        _mako_get_namespace(context, '__anon_0x9bfdb50')._populate(_import_ns, [u'*'])
         tool_menu_javascripts = _import_ns.get('tool_menu_javascripts', context.get('tool_menu_javascripts', UNDEFINED))
         parent = _import_ns.get('parent', context.get('parent', UNDEFINED))
         __M_writer = context.writer()

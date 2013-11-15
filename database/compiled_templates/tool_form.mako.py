@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 6
-_modified_time = 1382375569.885144
+_modified_time = 1384542358.603009
 _template_filename='templates/webapps/galaxy/tool_form.mako'
 _template_uri='tool_form.mako'
 _template_cache=cache.Cache(__name__, _modified_time)
@@ -20,12 +20,12 @@ def _mako_get_namespace(context, name):
         return context.namespaces[(__name__, name)]
 def _mako_generate_namespaces(context):
     # SOURCE LINE 3
-    ns = runtime.TemplateNamespace('__anon_0x8bab650', context._clean_inheritance_tokens(), templateuri=u'/base_panels.mako', callables=None, calling_uri=_template_uri)
-    context.namespaces[(__name__, '__anon_0x8bab650')] = ns
+    ns = runtime.TemplateNamespace('__anon_0x9b4df90', context._clean_inheritance_tokens(), templateuri=u'/base_panels.mako', callables=None, calling_uri=_template_uri)
+    context.namespaces[(__name__, '__anon_0x9b4df90')] = ns
 
     # SOURCE LINE 2
-    ns = runtime.TemplateNamespace('__anon_0x8bab690', context._clean_inheritance_tokens(), templateuri=u'/message.mako', callables=None, calling_uri=_template_uri)
-    context.namespaces[(__name__, '__anon_0x8bab690')] = ns
+    ns = runtime.TemplateNamespace('__anon_0x9bb20d0', context._clean_inheritance_tokens(), templateuri=u'/message.mako', callables=None, calling_uri=_template_uri)
+    context.namespaces[(__name__, '__anon_0x9bb20d0')] = ns
 
 def _mako_inherit(template, context):
     _mako_generate_namespaces(context)
@@ -35,8 +35,8 @@ def render_body(context,**pageargs):
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         _import_ns = {}
-        _mako_get_namespace(context, '__anon_0x8bab650')._populate(_import_ns, [u'overlay'])
-        _mako_get_namespace(context, '__anon_0x8bab690')._populate(_import_ns, [u'render_msg'])
+        _mako_get_namespace(context, '__anon_0x9b4df90')._populate(_import_ns, [u'overlay'])
+        _mako_get_namespace(context, '__anon_0x9bb20d0')._populate(_import_ns, [u'render_msg'])
         add_frame = _import_ns.get('add_frame', context.get('add_frame', UNDEFINED))
         errors = _import_ns.get('errors', context.get('errors', UNDEFINED))
         render_msg = _import_ns.get('render_msg', context.get('render_msg', UNDEFINED))
@@ -270,8 +270,8 @@ def render_stylesheets(context):
     context.caller_stack._push_frame()
     try:
         _import_ns = {}
-        _mako_get_namespace(context, '__anon_0x8bab650')._populate(_import_ns, [u'overlay'])
-        _mako_get_namespace(context, '__anon_0x8bab690')._populate(_import_ns, [u'render_msg'])
+        _mako_get_namespace(context, '__anon_0x9b4df90')._populate(_import_ns, [u'overlay'])
+        _mako_get_namespace(context, '__anon_0x9bb20d0')._populate(_import_ns, [u'render_msg'])
         h = _import_ns.get('h', context.get('h', UNDEFINED))
         __M_writer = context.writer()
         # SOURCE LINE 5
@@ -288,8 +288,8 @@ def render_javascripts(context):
     context.caller_stack._push_frame()
     try:
         _import_ns = {}
-        _mako_get_namespace(context, '__anon_0x8bab650')._populate(_import_ns, [u'overlay'])
-        _mako_get_namespace(context, '__anon_0x8bab690')._populate(_import_ns, [u'render_msg'])
+        _mako_get_namespace(context, '__anon_0x9b4df90')._populate(_import_ns, [u'overlay'])
+        _mako_get_namespace(context, '__anon_0x9bb20d0')._populate(_import_ns, [u'render_msg'])
         h = _import_ns.get('h', context.get('h', UNDEFINED))
         add_frame = _import_ns.get('add_frame', context.get('add_frame', UNDEFINED))
         tool = _import_ns.get('tool', context.get('tool', UNDEFINED))
@@ -322,8 +322,8 @@ def render_do_inputs(context,inputs,tool_state,errors,prefix,other_values=None):
     context.caller_stack._push_frame()
     try:
         _import_ns = {}
-        _mako_get_namespace(context, '__anon_0x8bab650')._populate(_import_ns, [u'overlay'])
-        _mako_get_namespace(context, '__anon_0x8bab690')._populate(_import_ns, [u'render_msg'])
+        _mako_get_namespace(context, '__anon_0x9b4df90')._populate(_import_ns, [u'overlay'])
+        _mako_get_namespace(context, '__anon_0x9bb20d0')._populate(_import_ns, [u'render_msg'])
         def row_for_param(prefix,param,parent_state,parent_errors,other_values):
             return render_row_for_param(context,prefix,param,parent_state,parent_errors,other_values)
         h = _import_ns.get('h', context.get('h', UNDEFINED))
@@ -541,8 +541,8 @@ def render_row_for_rerun(context):
     context.caller_stack._push_frame()
     try:
         _import_ns = {}
-        _mako_get_namespace(context, '__anon_0x8bab650')._populate(_import_ns, [u'overlay'])
-        _mako_get_namespace(context, '__anon_0x8bab690')._populate(_import_ns, [u'render_msg'])
+        _mako_get_namespace(context, '__anon_0x9b4df90')._populate(_import_ns, [u'overlay'])
+        _mako_get_namespace(context, '__anon_0x9bb20d0')._populate(_import_ns, [u'render_msg'])
         tool_state = _import_ns.get('tool_state', context.get('tool_state', UNDEFINED))
         trans = _import_ns.get('trans', context.get('trans', UNDEFINED))
         __M_writer = context.writer()
@@ -565,8 +565,8 @@ def render_row_for_param(context,prefix,param,parent_state,parent_errors,other_v
     context.caller_stack._push_frame()
     try:
         _import_ns = {}
-        _mako_get_namespace(context, '__anon_0x8bab650')._populate(_import_ns, [u'overlay'])
-        _mako_get_namespace(context, '__anon_0x8bab690')._populate(_import_ns, [u'render_msg'])
+        _mako_get_namespace(context, '__anon_0x9b4df90')._populate(_import_ns, [u'overlay'])
+        _mako_get_namespace(context, '__anon_0x9bb20d0')._populate(_import_ns, [u'render_msg'])
         h = _import_ns.get('h', context.get('h', UNDEFINED))
         trans = _import_ns.get('trans', context.get('trans', UNDEFINED))
         type = _import_ns.get('type', context.get('type', UNDEFINED))

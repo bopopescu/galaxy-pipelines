@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 6
-_modified_time = 1382375569.995076
+_modified_time = 1384542358.708105
 _template_filename=u'templates/message.mako'
 _template_uri=u'/message.mako'
 _template_cache=cache.Cache(__name__, _modified_time)
@@ -33,8 +33,8 @@ def _mako_get_namespace(context, name):
         return context.namespaces[(__name__, name)]
 def _mako_generate_namespaces(context):
     # SOURCE LINE 14
-    ns = runtime.TemplateNamespace('__anon_0x8cdf290', context._clean_inheritance_tokens(), templateuri=u'/refresh_frames.mako', callables=None, calling_uri=_template_uri)
-    context.namespaces[(__name__, '__anon_0x8cdf290')] = ns
+    ns = runtime.TemplateNamespace('__anon_0x9b591d0', context._clean_inheritance_tokens(), templateuri=u'/refresh_frames.mako', callables=None, calling_uri=_template_uri)
+    context.namespaces[(__name__, '__anon_0x9b591d0')] = ns
 
 def _mako_inherit(template, context):
     _mako_generate_namespaces(context)
@@ -44,7 +44,7 @@ def render_body(context,**pageargs):
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         _import_ns = {}
-        _mako_get_namespace(context, '__anon_0x8cdf290')._populate(_import_ns, [u'handle_refresh_frames'])
+        _mako_get_namespace(context, '__anon_0x9b591d0')._populate(_import_ns, [u'handle_refresh_frames'])
         n_ = _import_ns.get('n_', context.get('n_', UNDEFINED))
         __M_writer = context.writer()
         # SOURCE LINE 11
@@ -82,7 +82,7 @@ def render_body(context):
     context.caller_stack._push_frame()
     try:
         _import_ns = {}
-        _mako_get_namespace(context, '__anon_0x8cdf290')._populate(_import_ns, [u'handle_refresh_frames'])
+        _mako_get_namespace(context, '__anon_0x9b591d0')._populate(_import_ns, [u'handle_refresh_frames'])
         status = _import_ns.get('status', context.get('status', UNDEFINED))
         message = _import_ns.get('message', context.get('message', UNDEFINED))
         def render_large_message(message,status):
@@ -102,7 +102,7 @@ def render_render_msg(context,msg,status='done'):
     context.caller_stack._push_frame()
     try:
         _import_ns = {}
-        _mako_get_namespace(context, '__anon_0x8cdf290')._populate(_import_ns, [u'handle_refresh_frames'])
+        _mako_get_namespace(context, '__anon_0x9b591d0')._populate(_import_ns, [u'handle_refresh_frames'])
         _ = _import_ns.get('_', context.get('_', UNDEFINED))
         __M_writer = context.writer()
         # SOURCE LINE 56
@@ -121,7 +121,7 @@ def render_center_panel(context):
     context.caller_stack._push_frame()
     try:
         _import_ns = {}
-        _mako_get_namespace(context, '__anon_0x8cdf290')._populate(_import_ns, [u'handle_refresh_frames'])
+        _mako_get_namespace(context, '__anon_0x9b591d0')._populate(_import_ns, [u'handle_refresh_frames'])
         status = _import_ns.get('status', context.get('status', UNDEFINED))
         message = _import_ns.get('message', context.get('message', UNDEFINED))
         def render_large_message(message,status):
@@ -141,7 +141,7 @@ def render_init(context):
     context.caller_stack._push_frame()
     try:
         _import_ns = {}
-        _mako_get_namespace(context, '__anon_0x8cdf290')._populate(_import_ns, [u'handle_refresh_frames'])
+        _mako_get_namespace(context, '__anon_0x9b591d0')._populate(_import_ns, [u'handle_refresh_frames'])
         self = _import_ns.get('self', context.get('self', UNDEFINED))
         active_view = _import_ns.get('active_view', context.get('active_view', UNDEFINED))
         __M_writer = context.writer()
@@ -166,7 +166,7 @@ def render_render_large_message(context,message,status):
     context.caller_stack._push_frame()
     try:
         _import_ns = {}
-        _mako_get_namespace(context, '__anon_0x8cdf290')._populate(_import_ns, [u'handle_refresh_frames'])
+        _mako_get_namespace(context, '__anon_0x9b591d0')._populate(_import_ns, [u'handle_refresh_frames'])
         _ = _import_ns.get('_', context.get('_', UNDEFINED))
         __M_writer = context.writer()
         # SOURCE LINE 51
@@ -185,7 +185,7 @@ def render_javascripts(context):
     context.caller_stack._push_frame()
     try:
         _import_ns = {}
-        _mako_get_namespace(context, '__anon_0x8cdf290')._populate(_import_ns, [u'handle_refresh_frames'])
+        _mako_get_namespace(context, '__anon_0x9b591d0')._populate(_import_ns, [u'handle_refresh_frames'])
         handle_refresh_frames = _import_ns.get('handle_refresh_frames', context.get('handle_refresh_frames', UNDEFINED))
         parent = _import_ns.get('parent', context.get('parent', UNDEFINED))
         __M_writer = context.writer()

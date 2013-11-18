@@ -1,0 +1,3 @@
+CreateOutputDir	mkdir -p /isilon_temp/weng/fuy2/public/output/fuy2_585463730/output	1
+Symlink	ln -fs /isilon_temp/weng/fuy2/public/Phil.SRA.PiwiIPago3hets.unox.ovary.inserts.trimmed /isilon_temp/weng/fuy2/public/output/fuy2_585463730/Phil.SRA.PiwiIPago3hets.unox.ovary.inserts.trimmed	1
+Final	export PATH=$PATH:/share/bin/R/bin:/share/bin/R/share:/home/wengz/pipelines/smallRNApipeline/transposon_bucket:/home/wengz/pipelines/smallRNApipeline/pipeline_dm && export LD_LIBRARY_PATH=/share/bin/R/lib64 && @BASH @PIPELINEDIR/zpipe_TAS_new.sh @INPUT_FILE @ADAPTOR @MINIMUM @MAXIMUM @MM @FEMALE @EMAIL I_am_a_boring_job_id /share/zzpipeline/pipeline/bowtie/indexes	1

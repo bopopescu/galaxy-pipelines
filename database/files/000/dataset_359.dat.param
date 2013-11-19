@@ -1,0 +1,12 @@
+@BASH=/bin/bash
+@PERL=/share/bin/perl
+@PYTHON=/share/bin/python
+@INPUT_FILE=/isilon_temp/weng/fuy2/public/output/fuy2_62025898/Phil.SRA.PiwiIPago3hets.unox.ovary.inserts.trimmed
+@OUTPUT_DIR=/isilon_temp/weng/fuy2/public/output/fuy2_62025898
+@ADAPTOR=TGGAATTCTCGGGTGCCAAGG
+@MINIMUM=18
+@MAXIMUM=34
+@MM=0
+@EMAIL=yfu__at__yfu.me
+@FEMALE=Y
+@PIPELINEDIR=/home/wengz/pipelines/smallRNApipeline/pipeline_dm
